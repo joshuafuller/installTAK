@@ -36,6 +36,11 @@ cd installTAK
 
 If you have not done so already, head to [TAK.gov][tpc], download the [TAK Server][takserver] installation files, and place them in this newly created *installTAK* directory.
 
+**Important:** The script must be executed with root privileges. Run it as `root` or prefix the command with `sudo`:
+```shell
+sudo ./installTAK takserver-*.deb
+```
+
 Run the following command to display the installation arguments:
 ```shell
 ./installTAK
