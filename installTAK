@@ -11,6 +11,9 @@ GREEN='\033[0;32m'
 NC='\033[0m'
 BASEDIR=$(dirname "$(readlink -f "$0")")
 curuser=$(printenv SUDO_USER)
+if [[ -z "$curuser" ]]; then
+    curuser=$(whoami)
+fi
 #homeDir=$(cat /etc/passwd | awk -F':' '/'"$curuser"'/ { print $6 }' | head -n 1) #REMOVE
 homeDir=$(getent passwd "$curuser" | cut -d: -f6)
 distro=$(awk -F'=' '/^ID=/ { print tolower($2) }' /etc/*-release | tr -d '"')
